@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "healthcooldown",
+  "version": "${version}",
+  "name": "HealthCooldown",
+  "description": "인생약탈 위주 힐 쿨타임 측정 모드",
+  "authors": ["sfsdf.security"],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "org.sfsdf.healthcooldown.client.HealCooldownClient"
+    ],
+    "main": [
+      "org.sfsdf.healthcooldown.Healthcooldown"
+    ]
+  },
+  "mixins": [
+    "healthcooldown.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
