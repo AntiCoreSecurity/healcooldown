@@ -11,10 +11,10 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "org.enc.healcooldown.client.HealCooldownClient"
+      "org.anticore.healcooldown.client.HealCooldownClient"
     ],
     "modmenu": [
-      "org.enc.healcooldown.config.ModConfigScreen"
+      "org.anticore.healcooldown.config.ModConfigScreen"
     ]
   },
   "mixins": [

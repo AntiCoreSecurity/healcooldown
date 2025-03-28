@@ -6,5 +6,5 @@
   "text.autoconfig.healcooldown.option.healCooldown" : "힐 쿨타임 (초 단위)",
   "text.autoconfig.healcooldown.option.enableTimerSound" : "사운드 재생 여부 (기본 : 비활성화)",
   "text.autoconfig.healcooldown.option.enableSelfTimer": "본인 힐 쿨타임 표시",
-  "sound_select_option" : "사운드 커스텀 옵션",
+  "text.autoconfig.healcooldown.option.displayPosition": "힐 쿨타임 표시 위치"
 }
