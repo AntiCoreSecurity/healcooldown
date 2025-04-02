@@ -30,7 +30,7 @@ public abstract class HealCooldownNametagsMixin {
             return;
         }
 
-        // 웅크리고 있는지 확인
+        // 웅크리고 있는지
         if (player.isSneaking()) {
             return;
         }
@@ -60,14 +60,13 @@ public abstract class HealCooldownNametagsMixin {
 
         MutableText displayText = nameText.append(cooldownText);
 
-        // 체력 추가 (하트 이모지, 소숫점 없이 표시)
-        String healthText = String.format("%d", (int) player.getHealth()) + " §c❤";  // 체력 소숫점 없이 표시
+        String healthText = String.format("%d", (int) player.getHealth()) + " §c❤";
         MutableText healthDisplayText = Text.literal(healthText).setStyle(Style.EMPTY.withColor(0xFFFFFF));
 
         ci.cancel(); // 기존 이름표 렌더링 취소
 
         matrices.push();
-        matrices.translate(0, player.getHeight() + 0.85, 0);  // 체력 텍스트를 머리 위로 올림 (조정된 y 값)
+        matrices.translate(0, player.getHeight() + 0.85, 0);
         matrices.multiply(MinecraftClient.getInstance().gameRenderer.getCamera().getRotation());
         matrices.scale(-0.03F, -0.03F, 0.03F);
 
@@ -75,10 +74,8 @@ public abstract class HealCooldownNametagsMixin {
         int textWidth = textRenderer.getWidth(displayText);
         int healthTextWidth = textRenderer.getWidth(healthDisplayText);
 
-        // 이름표 위치 설정
         textRenderer.draw(displayText, -textWidth / 2.0F, 0, 0xFFFFFF, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.SEE_THROUGH, 0x000000, light);
 
-        // 체력 이름표 위치 설정 (힐 쿨타임 텍스트 바로 아래)
         textRenderer.draw(healthDisplayText, -healthTextWidth / 2.0F, 12, 0xFFFFFF, false, matrices.peek().getPositionMatrix(), vertexConsumers, TextRenderer.TextLayerType.SEE_THROUGH, 0x000000, light);
 
         matrices.pop();

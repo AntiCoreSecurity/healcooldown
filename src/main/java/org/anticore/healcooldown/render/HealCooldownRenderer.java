@@ -25,9 +25,9 @@ public class HealCooldownRenderer implements HudRenderCallback {
         float seconds = cooldown / 20.0f;
         String cooldownText = String.format("%d", (int) seconds) + "초";
 
-        // 플레이어 체력
+        // 체력
         float health = player.getHealth();
-        String healthText = String.format("%.1f", health) + " §c❤";  // 하트 이모지에 빨간색 적용
+        String healthText = String.format("%.1f", health) + " §c❤";
 
         int cooldownColor = getCooldownColor(seconds);
 
@@ -37,7 +37,6 @@ public class HealCooldownRenderer implements HudRenderCallback {
         int cooldownTextWidth = client.textRenderer.getWidth(cooldownText);
         int healthTextWidth = client.textRenderer.getWidth(healthText);
 
-        // 위치 설정
         switch (config.displayPosition) {
             case TOP_RIGHT -> x = screenWidth - Math.max(cooldownTextWidth, healthTextWidth) - 10;
             case BOTTOM_LEFT -> y = screenHeight - 15;
@@ -47,10 +46,7 @@ public class HealCooldownRenderer implements HudRenderCallback {
             }
         }
 
-        // 힐 쿨타임 텍스트 그리기
         drawContext.drawText(client.textRenderer, cooldownText, x, y, cooldownColor, true);
-
-        // 체력 텍스트 그리기 (힐 쿨타임 텍스트 아래)
         drawContext.drawText(client.textRenderer, healthText, x, y + 15, 0xFFFFFF, true); // 흰색으로 표시
     }
 
@@ -64,11 +60,9 @@ public class HealCooldownRenderer implements HudRenderCallback {
     private int getCooldownColor(float seconds) {
         float progress = seconds / config.healCooldown;
 
-        // 색상 보간
         int startColor = config.startColor;
         int endColor = config.endColor;
 
-        // RGB 값 추출
         int startR = (startColor >> 16) & 0xFF;
         int startG = (startColor >> 8) & 0xFF;
         int startB = startColor & 0xFF;
