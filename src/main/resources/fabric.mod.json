@@ -1,27 +1,30 @@
 {
   "schemaVersion": 1,
-  "id": "healthcooldown",
+  "id": "healcooldown",
   "version": "${version}",
-  "name": "HealthCooldown",
+  "name": "healcooldown",
   "description": "인생약탈 위주 힐 쿨타임 측정 모드",
-  "authors": ["sfsdf.security"],
+  "authors": ["AntiCore"],
   "contact": {},
+  "icon": "assets/healcooldown/icon.png",
   "license": "All-Rights-Reserved",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "org.sfsdf.healthcooldown.client.HealCooldownClient"
+      "org.anticore.healcooldown.client.HealCooldownClient"
     ],
-    "main": [
-      "org.sfsdf.healthcooldown.Healthcooldown"
+    "modmenu": [
+      "org.anticore.healcooldown.config.ModConfigScreen"
     ]
   },
   "mixins": [
-    "healthcooldown.mixins.json"
+    "healcooldown.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
-    "minecraft": "${minecraft_version}"
+    "minecraft": "${minecraft_version}",
+    "modmenu": ">=7.1.0",
+    "cloth-config": ">=11.1.106"
   }
 }

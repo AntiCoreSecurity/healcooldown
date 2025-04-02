@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.anticore.healcooldown.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "HealCooldownNametagsMixin",
+    "SelfNametagMixin",
+    "SoundPlayerMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
